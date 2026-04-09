@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { store } from '@/store'
+import { computed } from "vue";
+import { store } from "@/store";
 
 const peopleWithYears = computed(() => {
   return store.people.map((person) => ({
     ...person,
     ageInYears: Math.floor(person.ageInHours / 8760),
-  }))
-})
+  }));
+});
 </script>
 
 <template>
@@ -22,13 +22,13 @@ const peopleWithYears = computed(() => {
         class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:border-violet-500"
       >
         <img
-          src="/img.png"
+          :src="`https://i.pravatar.cc/150?img=${person.id}`"
           :alt="person.name"
           class="w-10 h-10 rounded-full border-2 border-violet-500 object-cover"
         />
         <div>
-          <div class="font-bold text-gray-700">{{ person.name }}</div>
-          <div class="text-gray-600">{{ person.ageInYears }} years old</div>
+          <div class="text-gray-700 font-koulen">{{ person.name }}</div>
+          <div class="text-gray-600 font-inter">{{ person.ageInYears }} years old</div>
         </div>
       </router-link>
     </div>
